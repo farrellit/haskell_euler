@@ -7,7 +7,7 @@ isprime 3 = True
 isprime num = if length [ x | x <- (2:3:[5,7..(int_sqrt num ) ]), num `mod` x == 0 ] == 0 then True else False
 
 -- largest_factors :: Integer -> [ Integer ]
-largest_factors num = [ quot num x | x <- [23..(int_sqrt num ) ] , num `mod` x == 0 ]
+largest_factors num = [ quot num x | x <- [2,3..(int_sqrt num ) ] , num `mod` x == 0 ]
 factors num = [ quot num x | x <- lf ] ++ lf where lf = ( largest_factors num )
 prime_factors num = [ x | x <- ( factors num ) , isprime x ]
 
