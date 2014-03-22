@@ -39,18 +39,18 @@ int main(int argc, char* argv[]){
 	unsigned int showevery = 1000;
 	if(argc > 1 ){
 		sscanf( argv[1], "%llu", &lim);
-		fprintf( stdout, "Finding primes up to limit of %llu\n", lim );
+		fprintf( stderr, "Finding primes up to limit of %llu\n", lim );
 	}
 	if( argc > 2){
 		sscanf( argv[2], "%u", &showevery);
 	}
-	fprintf( stdout, "Showing every %i number\n", showevery);
+	fprintf( stderr, "Showing every %i number\n", showevery);
 	set* primeset = set_new( sizeof(prime_t), 1024);
 	prime_t candidate = 0;
 	prime_t next;
-	fprintf(stdout,"Loading numbers from stdin...\n");
+	fprintf(stderr,"Loading numbers from stdin...\n");
 	read_input( primeset );
-	fprintf(stdout,"Loaded %lu prime numbers up to %llu from stdin\n", 
+	fprintf(stderr,"Loaded %lu prime numbers up to %llu from stdin\n", 
 		primeset->count, 
 		primeset->count == 0 ? 0 : *( (prime_t*)set_getptr( primeset, primeset->count-1) )
 	);
@@ -58,7 +58,7 @@ int main(int argc, char* argv[]){
 		(next=next_candidate( candidate)) > candidate
 	){
 		if(lim > 0 && next > lim ){
-			fprintf(stdout, "Limit %llu reached.\n", lim);
+			fprintf(stderr, "Limit %llu reached.\n", lim);
 			exit( 0 );
 		}
 		if( is_prime(primeset, next) ){
