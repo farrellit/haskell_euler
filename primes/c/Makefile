@@ -1,9 +1,9 @@
-default: primegen bin
-primegen: primegen.c set.c bin
-	gcc -std=c99 -lm -O2 -o bin/primegen primegen.c
+default: bin/primegen bin
+bin/primegen: primegen.c set.c bin
+	gcc  -o bin/primegen primegen.c -std=c99 -lm -O2
 
 bin: 
 	mkdir bin
 
-primegen_debug: primegen.c set.c bin
+bin/primegen_debug: primegen.c set.c bin
 	gcc -std=c99 -lm -g -o bin/primegen_debug primegen.c
