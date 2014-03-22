@@ -8,6 +8,6 @@ if [ -e euler$num ]; then
 	exit 2
 fi
 mkdir euler$num
-cp euler3/Makefile euler$num
-sed -i -e "s/euler3/euler$num/g" euler$num/Makefile
+cp euler6/Makefile euler$num
+sed -i -e "s/euler6/euler$num/g" euler$num/Makefile
 
