@@ -7,5 +7,5 @@ maxsum (p2:p1:ps) =maxsum ((maxrowsum p2 p1):ps)
 
 pe18sum inp = maxsum ( reverse inp )
 
-main = putStrLn ( show (pe18sum pe67in ) )
+-- main = putStrLn ( show (pe18sum pe67in ) )
 
